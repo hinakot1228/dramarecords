@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `records` (
   `img` varchar(20) NOT NULL,
   `date` date,
   `impression` text NOT NULL,
-  `saying` text NOT NULL,
+  `saying` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
