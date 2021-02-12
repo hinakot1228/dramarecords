@@ -16,35 +16,35 @@
             <a class="navbar-brand" href="index.php">ドラマ・映画ノート</a>
         </div>
     </nav>
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="store.php" method="POST">
         <div class="form-group">
           <label class="col-sm-2 control-label">ポスター写真</label>
           <div class="col-sm-10">
-            <input class="form-control" type="file">
+            <input class="form-control" type="file" name="img">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">題目</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="title">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">鑑賞日</label>
           <div class="col-sm-10">
-            <input class="form-control" type="date">
+            <input class="form-control" type="date" name="date">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">感想</label>
           <div class="col-sm-10">
-            <textarea class="form-control" type="text"></textarea>
+            <textarea class="form-control" type="text" name="impression"></textarea>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">印象に残った言葉</label>
           <div class="col-sm-10">
-          <textarea class="form-control" type="text"></textarea>
+          <textarea class="form-control" type="text" name="saying"></textarea>
           </div>
         </div>
         <div class="form-group">
