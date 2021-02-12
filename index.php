@@ -6,7 +6,7 @@ require_once('function.php');
 // データを取得
 $record = new Record();
 $records = $record->getAll();
-var_dump($records);
+// var_dump($records);
 ?>
 <!DOCTYPE html>
 <html lang="en">
