@@ -1,3 +1,13 @@
+<?php
+// ファイルの読み込み
+require_once('Models/Record.php');
+require_once('function.php');
+
+// データを取得
+$record = new Record();
+$records = $record->getAll();
+var_dump($records);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">新しい記録を作る</a>
+                        <a class="nav-link active" aria-current="page" href="create.php">新しい記録を作る</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">サインイン</a>
@@ -38,16 +48,17 @@
     </nav>
 
     <div class="card mb-3" style="max-width: 540px;">
+        <?php foreach($records as $record) : ?>
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="..." alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">題名</h5>
-                    <date class="card-text">鑑賞日</date>
-                    <p class="card-text">感想</p>
-                    <p class="card-text">印象に残った言葉</p>
+                    <h5 class="card-title"><?php echo h($record['title']); ?></h5>
+                    <date class="card-text"><?php echo h($record['date']); ?></date>
+                    <p class="card-text"><?php echo h($record['impression']); ?></p>
+                    <p class="card-text"><?php echo h($record['saying']); ?></p>
                 </div>
                 <div class="card-btn">
                     <a href="#" class="btn btn-primary">編集する</a>
@@ -55,6 +66,7 @@
                 </div>
             </div>
         </div>
+        <?php endforeach ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
