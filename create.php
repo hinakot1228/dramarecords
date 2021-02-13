@@ -16,11 +16,11 @@
             <a class="navbar-brand" href="index.php">ドラマ・映画ノート</a>
         </div>
     </nav>
-    <form class="form-horizontal" action="store.php" method="POST">
+    <form class="form-horizontal" action="store.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
           <label class="col-sm-2 control-label">ポスター写真</label>
           <div class="col-sm-10">
-            <input class="form-control" type="file" name="img">
+            <input class="form-control" type="file" name="image">
           </div>
         </div>
         <div class="form-group">

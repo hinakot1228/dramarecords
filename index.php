@@ -6,7 +6,8 @@ require_once('function.php');
 // データを取得
 $record = new Record();
 $records = $record->getAll();
-var_dump($records);
+// var_dump($records);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +52,9 @@ var_dump($records);
         <?php foreach($records as $record) : ?>
         <div class="row g-0">
             <div class="col-md-4">
+
                 <img src="..." alt="...">
+                
             </div>
             <div class="col-md-8">
                 <div class="card-body">
