@@ -7,6 +7,8 @@ require_once('function.php');
 $record = new Record();
 $records = $record->getAll();
 // var_dump($records);
+$images = $record->getImageAll();
+// var_dump($images);
 
 ?>
 <!DOCTYPE html>
@@ -52,9 +54,9 @@ $records = $record->getAll();
         <?php foreach($records as $record) : ?>
         <div class="row g-0">
             <div class="col-md-4">
-
-                <img src="..." alt="...">
-                
+            <?php for($i = 0; $i < count($images); $i++): ?>
+                <img src="image.php?image_id=<?php $images[$i]['image_id']; ?>" alt="...">
+            <?php endfor ?>    
             </div>
             <div class="col-md-8">
                 <div class="card-body">
