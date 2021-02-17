@@ -14,12 +14,13 @@ class Record extends Model
     }
 
     public function imageCreate($data)
+    // 画像を登録する
     {
-        if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-            // 画像を取得
+        // if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+        //     // 画像を取得
             
-        } else {
-            // 画像を保存
+        // } else {
+        //     // 画像を保存
             if (!empty($_FILES['image']['name'])) {
                 $sql = 'INSERT INTO images(image_name, image_type, image_content, image_size, created_at)
                         VALUES (:image_name, :image_type, :image_content, :image_size, now())';
@@ -31,17 +32,17 @@ class Record extends Model
                 $stmt->execute($data);
             }
             // unset($pdo);
-        }
+        // }
     }
 
     public function findByImageId()
     {
-        // $sql = 'SELECT * FROM ' . $this->table2 . ' WHERE image_id = :image_id LIMIT 1';
-        // $stmt = $this->db_manager->dbh->prepare($sql);
-        // $stmt->bindValue(':image_id', (int)$_GET['id'], PDO::PARAM_INT);
-        // $stmt->execute();
-        // $image = $stmt->fetch();
+        $sql = 'SELECT * FROM ' . $this->table2 . ' WHERE image_id = :image_id LIMIT 1';
+        $stmt = $this->db_manager->dbh->prepare($sql);
+        $stmt->bindValue(':image_id', (int)$_GET['image_id'], PDO::PARAM_INT);
+        $stmt->execute();
 
-        // return $image;
+        $image = $stmt->fetch();
+        return $image;
     }
 }
