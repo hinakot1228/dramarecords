@@ -4,45 +4,38 @@ require_once('Model.php');
 class Record extends Model
 {
     protected $table = 'records';
-    protected $table2 = 'images';
 
     public function create($data)
     {
-        $sql = 'INSERT INTO ' . $this->table . '(title, date, impression, saying, created_at) VALUES (?, ?, ?, ?, now())';
+        $sql = 'INSERT INTO ' . $this->table . '(image_at, title, date, impression, saying, created_at) VALUES (?, ?, ?, ?, ?, ?)';
         $stmt = $this->db_manager->dbh->prepare($sql);
         $stmt->execute($data);
     }
 
-    public function imageCreate($data)
-    // 画像を登録する
-    {
-        // if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-        //     // 画像を取得
-            
-        // } else {
-        //     // 画像を保存
-            if (!empty($_FILES['image']['name'])) {
-                $sql = 'INSERT INTO images(image_name, image_type, image_content, image_size, created_at)
-                        VALUES (:image_name, :image_type, :image_content, :image_size, now())';
-                $stmt = $this->db_manager->dbh->prepare($sql);
-                $stmt->bindValue(':image_name', $name, PDO::PARAM_STR);
-                $stmt->bindValue(':image_type', $type, PDO::PARAM_STR);
-                $stmt->bindValue(':image_content', $content, PDO::PARAM_STR);
-                $stmt->bindValue(':image_size', $size, PDO::PARAM_INT);
-                $stmt->execute($data);
-            }
-            // unset($pdo);
-        // }
-    }
+    // public function imageCreate($data)
+    // // 画像を登録する
+    // {
+    //     // 画像がアップロードされている場合
+    //     if ($_FILES['image']['error'] !== 4) {
+    //         $imgPath = 'images/' . $_FILES['image']['title'];
+    //         move_uploaded_file([$file, $imgPath]);
+    //     } // 画像がアップロードされていない場合
+    //     else {
+    //         $imgPath = 'images/default.png';
+    //     }
 
-    public function findByImageId()
-    {
-        $sql = 'SELECT * FROM ' . $this->table2 . ' WHERE image_id = :image_id LIMIT 1';
-        $stmt = $this->db_manager->dbh->prepare($sql);
-        $stmt->bindValue(':image_id', (int)$_GET['image_id'], PDO::PARAM_INT);
-        $stmt->execute();
+    //     // DBへの保存
+    //     $sql = 'INSERT INTO images (title, image_at) VALUES (?, ?)';
+    //     $stmt = $this->db_manager->dbh->prepare($sql);
+    //     $stmt->execute($data);
+    //     return $imgPath;
+    // }
 
-        $image = $stmt->fetch();
-        return $image;
-    }
+    // public function getImageAll()
+    // {
+    //     $stmt =  $this->db_manager->dbh->prepare('SELECT * FROM images');
+    //     $stmt->execute();
+    //     $images = $stmt->fetchAll();
+    //     return $images;
+    // }
 }
