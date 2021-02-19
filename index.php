@@ -3,12 +3,10 @@
 require_once('Models/Record.php');
 require_once('function.php');
 
-// データを取得
+// DBからデータを取得
 $record = new Record();
 $records = $record->getAll();
 // var_dump($records);
-$images = $record->getImageAll();
-// var_dump($images);
 
 ?>
 <!DOCTYPE html>
@@ -21,6 +19,7 @@ $images = $record->getImageAll();
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -51,19 +50,17 @@ $images = $record->getImageAll();
     </nav>
 
     <div class="card mb-3" style="max-width: 540px;">
-        <?php foreach($records as $record) : ?>
+        <?php foreach ($records as $record): ?>
         <div class="row g-0">
             <div class="col-md-4">
-            <?php for($i = 0; $i < count($images); $i++): ?>
-                <img src="image.php?image_id=<?php $images[$i]['image_id']; ?>" alt="...">
-            <?php endfor ?>    
+                <img class="record-img" src="<?= $record['image_at']; ?>" alt="">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo h($record['title']); ?></h5>
-                    <date class="card-text"><?php echo h($record['date']); ?></date>
-                    <p class="card-text"><?php echo h($record['impression']); ?></p>
-                    <p class="card-text"><?php echo h($record['saying']); ?></p>
+                    <h5 class="card-title"><?= h($record["title"]); ?></h5>
+                    <date class="card-text"><?= h($record["date"]); ?></date>
+                    <p class="card-text"><?= h($record["impression"]); ?></p>
+                    <p class="card-text"><?= h($record["saying"]); ?></p>
                 </div>
                 <div class="card-btn">
                     <a href="#" class="btn btn-primary">編集する</a>
@@ -71,7 +68,7 @@ $images = $record->getImageAll();
                 </div>
             </div>
         </div>
-        <?php endforeach ?>
+        <?php endforeach; ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `records` (
   `id` int(11) NOT NULL,
+  `image_at` text,
   `title` varchar(20) NOT NULL,
   `date` date,
   `impression` text NOT NULL,
@@ -39,8 +40,8 @@ CREATE TABLE IF NOT EXISTS `records` (
 -- テーブルのデータのダンプ `tasks`
 --
 
-INSERT INTO `records` (`id`, `title`, `date`, `impression`, `saying`, `created_at`) VALUES
-(1, '도깨비', '2016-01-01', '도께비♡은탁', '너와 함께한 시간 모두 눈부셨다. 날이 좋아서 날이 좋지 않아서 날이 적당해서 모든 날이 좋았다.' , '2021/02/13 00:00:00');
+INSERT INTO `records` (`id`, `image_at`, `title`, `date`, `impression`, `saying`, `created_at`) VALUES
+(1, 'images/dokebi.jpg', '도깨비', '2016-01-01', '도깨비♡은탁', '너와 함께한 시간 모두 눈부셨다. 날이 좋아서 날이 좋지 않아서 날이 적당해서 모든 날이 좋았다.' , '2021/02/13 00:00:00');
 
 --
 -- Indexes for dumped tables
