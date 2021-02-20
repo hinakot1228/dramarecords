@@ -11,7 +11,12 @@ class Record extends Model
         $stmt = $this->db_manager->dbh->prepare($sql);
         $stmt->execute($data);
     }
-
+    public function update($data)
+    {
+        $sql = 'UPDATE ' . $this->table . ' SET title = ?, date = ?, impression = ?, saying = ? WHERE id = ?';
+        $stmt = $this->db_manager->dbh->prepare($sql);
+        $stmt->execute($data);
+    }
     // public function imageCreate($data)
     // // 画像を登録する
     // {
