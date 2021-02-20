@@ -1,3 +1,18 @@
+<?php
+// ファイルの読み込み
+require_once('Models/Record.php');
+require_once('function.php');
+
+// データの受け取り
+$id = $_GET['id'];
+// var_dump($id);
+
+// データの受け取り
+$record = new Record();
+$record = $record->findById($id);
+// var_dump($record);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,37 +31,39 @@
             <a class="navbar-brand" href="index.php">ドラマ・映画ノート</a>
         </div>
     </nav>
-    <form class="form-horizontal">
-        <div class="form-group">
+    <form class="form-horizontal" action="update.php" method="POST" enctype="multipart/form-data">
+        <!-- <div class="form-group">
           <label class="col-sm-2 control-label">ポスター写真</label>
           <div class="col-sm-10">
-            <input class="form-control" type="file">
+            <input class="form-control" type="file" value="<?= h($record['image_at']); ?>">
           </div>
-        </div>
+        </div> -->
         <div class="form-group">
           <label class="col-sm-2 control-label">題目</label>
           <div class="col-sm-10">
-            <input class="form-control" type="text">
+            <input class="form-control" type="text" name="title" 
+            value="<?= h($record['title']); ?>">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">鑑賞日</label>
           <div class="col-sm-10">
-            <input class="form-control" type="date">
+            <input class="form-control" type="date" name="date" value="<?= h($record['date']); ?>">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">感想</label>
           <div class="col-sm-10">
-            <textarea class="form-control" type="text"></textarea>
+            <textarea class="form-control" type="text" name="impression"><?= h($record['impression']); ?></textarea>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">印象に残った言葉</label>
           <div class="col-sm-10">
-          <textarea class="form-control" type="text"></textarea>
+          <textarea class="form-control" type="text" name="saying"><?= h($record['saying']); ?></textarea>
           </div>
         </div>
+        <input type="hidden" name="id" value="<?= $record['id']; ?>">
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
           <button type="submit" class="btn btn-primary">編集</button>

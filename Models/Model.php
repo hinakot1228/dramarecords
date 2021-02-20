@@ -25,18 +25,17 @@ class Model
         return $records;
     }
 
+    public function findById($id)
+    {
+        $sql = 'SELECT * FROM ' . $this->table . ' WHERE id = ?';
+        $stmt = $this->db_manager->dbh->prepare($sql);
+        // 準備したSQLを実行する
+        $stmt->execute([$id]);
 
-    // public function getImageAll()
-    // {
-    //     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
-    //         // 画像を取得
-    //         $sql = 'SELECT * FROM images';
-    //         $stmt = $this->db_manager->dbh->prepare($sql);
-    //         $stmt->execute();
-    //         $images = $stmt->fetchAll();
-    //         return $images;
-    //     }
-    // }
+        // 実行結果を取得
+        $record = $stmt->fetch();
+        return $record;
+    }
 }
 
 ?>
