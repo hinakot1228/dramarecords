@@ -35,7 +35,7 @@ $records = $record->getAll();
                         <a class="nav-link active" aria-current="page" href="create.php">新しい記録を作る</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">サインイン</a>
+                        <a class="nav-link" href="signupForm.php">サインアップ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">サインアウト</a>
