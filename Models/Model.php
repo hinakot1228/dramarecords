@@ -36,6 +36,14 @@ class Model
         $record = $stmt->fetch();
         return $record;
     }
+
+    public function delete($data)
+    {
+        $sql = 'DELETE FROM ' . $this->table . ' WHERE id = ?';
+        $stmt = $this->db_manager->dbh->prepare($sql);
+
+        return $stmt->execute($data);
+    }
 }
 
 ?>
