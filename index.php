@@ -64,7 +64,7 @@ $records = $record->getAll();
                 </div>
                 <div class="card-btn">
                     <a href="edit.php?id=<?= h($record['id']); ?>" class="btn btn-primary">編集する</a>
-                    <a href="#" class="btn btn-primary">削除する</a>
+                    <a href="delete.php?id=<?= h($record['id']); ?>" class="btn btn-primary">削除する</a>
                 </div>
             </div>
         </div>
