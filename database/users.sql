@@ -30,15 +30,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
   `nickname` varchar(90) NOT NULL,
   `user_id` varchar(90) NOT NULL,
-  `password` text NOT NULL
+  `password` text NOT NULL,
+  `created_at` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- テーブルのデータのダンプ `users`
 --
 
-INSERT INTO `users` (`id`, `nickname`, `user_id`, `password`) VALUES
-(1, 'スクランプ', 'scrumps1234', 'scrump5678');
+INSERT INTO `users` (`id`, `nickname`, `user_id`, `password`, `created_at`) VALUES
+(1, 'スクランプ', 'scrumps1234', 'scrump5678', '2021/1/1 00:00:00');
 
 --
 -- Indexes for dumped tables
