@@ -1,12 +1,23 @@
 <?php
 // ファイルの読み込み
 require_once('Models/Record.php');
+require_once('Models/User.php');
 require_once('function.php');
+
+// セッションを開始
+session_start();
 
 // DBからデータを取得
 $record = new Record();
 $records = $record->getAll();
 // var_dump($records);
+
+// DBからニックネームを取得
+$id = $_SESSION['id'];
+$user = new User();
+$nickname = $user->getNickname($id);
+// var_dump($nickname);
+// die;
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +36,7 @@ $records = $record->getAll();
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">〇〇のドラマ・映画ノート</a>
+            <a class="navbar-brand" href="#"><?= $nickname; ?>のドラマ・映画ノート</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,6 +47,9 @@ $records = $record->getAll();
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="signupForm.php">サインアップ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signinForm.php">サインイン</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">サインアウト</a>
