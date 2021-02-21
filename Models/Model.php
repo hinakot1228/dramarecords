@@ -44,17 +44,6 @@ class Model
 
         return $stmt->execute($data);
     }
-
-    public function getNickname($id)
-    {
-        if (isset($id)) {
-            $nickname = $_SESSION['nickname'];
-            return $nickname;
-        } else {
-            $nickname = 'あなた';
-            return $nickname;
-        }
-    }
 }
 
 ?>
