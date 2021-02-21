@@ -13,11 +13,11 @@ $records = $record->getAll();
 // var_dump($records);
 
 // DBからニックネームを取得
-$id = $_SESSION['id'];
-$user = new User();
-$nickname = $user->getNickname($id);
-// var_dump($nickname);
-// die;
+if (isset($_SESSION['id'])){
+    $name = $_SESSION['nickname'];
+} else {
+    $name = 'あなた';
+}
 
 ?>
 <!DOCTYPE html>
@@ -36,29 +36,29 @@ $nickname = $user->getNickname($id);
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; ">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><?= $nickname; ?>のドラマ・映画ノート</a>
+            <a class="navbar-brand" href="#"><?= $name; ?>のドラマ・映画ノート</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="create.php">新しい記録を作る</a>
+                        <a class="nav-link active" aria-current="page" href="create.php"><i class="far fa-plus-square"></i>新しい記録</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="signupForm.php">サインアップ</a>
+                        <a class="nav-link" href="signupForm.php"><i class="fas fa-user-plus"></i>サインアップ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="signinForm.php">サインイン</a>
+                        <a class="nav-link" href="signinForm.php"><i class="fas fa-sign-in-alt"></i>サインイン</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">サインアウト</a>
+                        <a class="nav-link" href="signout.php"><i class="fas fa-sign-out-alt"></i>サインアウト</a>
                     </li>
                 </ul>
-                <form class="d-flex">
+                <!-- <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="探す" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i></button>
-                </form>
+                </form> -->
             </div>
         </div>
     </nav>
@@ -77,8 +77,8 @@ $nickname = $user->getNickname($id);
                     <p class="card-text"><?= h($record["saying"]); ?></p>
                 </div>
                 <div class="card-btn">
-                    <a href="edit.php?id=<?= h($record['id']); ?>" class="btn btn-primary">編集する</a>
-                    <a href="delete.php?id=<?= h($record['id']); ?>" class="btn btn-primary">削除する</a>
+                    <a href="edit.php?id=<?= h($record['id']); ?>" class="btn btn-primary"><i class="fas fa-edit"></i>編集</a>
+                    <a href="delete.php?id=<?= h($record['id']); ?>" class="btn btn-primary"><i class="fas fa-trash-alt"></i>削除</a>
                 </div>
             </div>
         </div>
