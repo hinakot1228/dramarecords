@@ -13,7 +13,7 @@ $records = $record->getAll();
 // var_dump($records);
 
 // DBからニックネームを取得
-if (isset($_SESSION['id'])){
+if (isset($_SESSION['id'])) {
     $name = $_SESSION['nickname'];
 } else {
     $name = 'あなた';
@@ -31,11 +31,12 @@ if (isset($_SESSION['id'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; ">
-        <div class="container-fluid">
+        <div class="container-fluid header">
             <a class="navbar-brand" href="#"><?= $name; ?>のドラマ・映画ノート</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -63,27 +64,27 @@ if (isset($_SESSION['id'])){
         </div>
     </nav>
 
-    <div class="card mb-3" style="max-width: 540px;">
-        <?php foreach ($records as $record): ?>
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img class="record-img" src="<?= $record['image_at']; ?>" alt="">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><?= h($record["title"]); ?></h5>
-                    <date class="card-text"><?= h($record["date"]); ?></date>
-                    <p class="card-text"><?= h($record["impression"]); ?></p>
-                    <p class="card-text"><?= h($record["saying"]); ?></p>
+    <section class="body-section">
+        <div class="row p-3 card-body">
+            <?php foreach ($records as $record) : ?>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <img class="record-img" src="<?= $record['image_at']; ?>" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= h($record["title"]); ?></h5>
+                            <date class="card-text"><?= h($record["date"]); ?></date>
+                            <p class="card-text"><?= h($record["impression"]); ?></p>
+                            <p class="card-text"><?= h($record["saying"]); ?></p>
+                            <div class="card-btn">
+                            <a href="edit.php?id=<?= h($record['id']); ?>" class="btn btn-primary"><i class="fas fa-edit"></i>編集</a>
+                            <a href="delete.php?id=<?= h($record['id']); ?>" class="btn btn-primary"><i class="fas fa-trash-alt"></i>削除</a>
+                        </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-btn">
-                    <a href="edit.php?id=<?= h($record['id']); ?>" class="btn btn-primary"><i class="fas fa-edit"></i>編集</a>
-                    <a href="delete.php?id=<?= h($record['id']); ?>" class="btn btn-primary"><i class="fas fa-trash-alt"></i>削除</a>
-                </div>
-            </div>
+            <?php endforeach ?>
         </div>
-        <?php endforeach; ?>
-    </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>

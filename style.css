@@ -1,3 +1,27 @@
+/* .header {
+    display: flex;
+    justify-content: space-around;
+} */
+* { 
+    font-family: "M PLUS Rounded 1c"; 
+}
+.container-fluid, .body-section {
+    width: 90%;
+    margin: 0 auto;
+}
+.card-body {
+    margin: 10px 0;
+}
+.card {
+    margin-bottom: 25px;
+    /* display: flex; */
+}
+.card-btn {
+    margin: 10px;
+}
+.far, .fas{
+    padding-right: 5px;
+}
 .col-md-4 {
     display: flex;
     justify-content: center;
@@ -5,4 +29,15 @@
 }
 .record-img {
     width: 100%;
+}
+.card-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+.btn {
+    margin-right: 10px;
+}
+.form-btn {
+    display: flex;
+    justify-content: center;
 }
