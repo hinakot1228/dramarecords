@@ -13,12 +13,13 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; ">
+    <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd; ">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">ドラマ・映画ノート</a>
         </div>
     </nav>
-    <div class="body-section">
+    <section class="body-section">
+        <h3 class="form-heading">サインイン</h3>
         <form action="signin.php" method="POST">
             <div class="mb-3">
                 <label for="exampleInputUserid1" class="form-label">ユーザーID</label>
@@ -29,10 +30,10 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
             </div>
             <div class="form-btn">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>サインイン</button>
+                <button type="submit" class="btn btn-dark"><i class="fas fa-sign-in-alt"></i>サインイン</button>
             </div>
         </form>
-    </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>

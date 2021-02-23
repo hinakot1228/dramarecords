@@ -17,8 +17,9 @@ class User extends Model
         // var_dump($member);
 
         if ($member['user_id'] === $userid) {
-            $msg = '同じメールアドレスが存在します。';
-            $link = '<a href="signupForm.php">戻る</a>';
+            $msg = '<div class="alert alert-danger" role="alert">同じユーザーIDが存在します。</div>';
+            $link = '<a href="signupForm.php" class="btn btn-dark"><i class="fas fa-user-plus"></i>戻る</a>';
+            return array($msg, $link);
         }
         else {
             $sql = 'INSERT INTO ' . $this->table . '(nickname, user_id, password) VALUES (:nickname, :userid, :password)';
@@ -28,11 +29,10 @@ class User extends Model
             $stmt->bindValue(':password', $password);
             $stmt->execute();
 
-            $msg = '会員登録が完了しました。';
-            $link = '<a href="index.php">トップページ</a>';
-        }
-        echo $msg;
-        echo $link;
+            $msg = '<div class="alert alert-primary" role="alert">会員登録が完了しました。</div>';
+            $link = '<a href="signinForm.php" class="btn btn-dark"><i class="fas fa-sign-in-alt"></i>サインインページへ</a>';
+            return array($msg, $link);
+        }   
     }
 
     public function login($userid, $password)
@@ -51,14 +51,14 @@ class User extends Model
             $_SESSION['nickname'] = $member['nickname'];
             $_SESSION['userid'] = $member['user_id'];
             $_SESSION['password'] = $member['password'];
-            $msg = $member['nickname'] . '様、こんにちは！ログインしました。';
-            $link = '<a href="index.php">トップページ</a>';
+
+            header('location:index.php');
+            exit;
         } else {
             $msg = 'ユーザーIDもしくはパスワードが間違っています。';
-            $link = '<a href="signinForm.php">戻る</a>';
+            $link = '戻る';
+            return array($msg, $link);
         }
-        echo $msg;
-        echo $link;
     }
 }
 ?>

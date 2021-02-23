@@ -35,7 +35,7 @@ if (isset($_SESSION['id'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; ">
+    <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd; ">
         <div class="container-fluid header">
             <a class="navbar-brand" href="#"><?= $name; ?>のドラマ・映画ノート</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,27 +64,27 @@ if (isset($_SESSION['id'])) {
         </div>
     </nav>
 
-    <section class="body-section">
-        <div class="row p-3 card-body">
+    <div class="container">
+        <div class="row card-body flex-reverse">
             <?php foreach ($records as $record) : ?>
-                <div class="col-lg-3">
-                    <div class="card">
+                <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
                         <img class="record-img" src="<?= $record['image_at']; ?>" alt="">
                         <div class="card-body">
-                            <h5 class="card-title"><?= h($record["title"]); ?></h5>
-                            <date class="card-text"><?= h($record["date"]); ?></date>
-                            <p class="card-text"><?= h($record["impression"]); ?></p>
-                            <p class="card-text"><?= h($record["saying"]); ?></p>
-                            <div class="card-btn">
-                            <a href="edit.php?id=<?= h($record['id']); ?>" class="btn btn-primary"><i class="fas fa-edit"></i>編集</a>
-                            <a href="delete.php?id=<?= h($record['id']); ?>" class="btn btn-primary"><i class="fas fa-trash-alt"></i>削除</a>
+                            <h5 class="card-title text-dark"><?= h($record["title"]); ?></h5>
+                            <p class="card-date"><?= h($record["date"]); ?></p>
+                            <p class="card-impression"><?= h($record["impression"]); ?></p>
+                            <p class="card-saying">"<?= h($record["saying"]); ?>"</p>
+                            <div class="card-btns">
+                            <a href="edit.php?id=<?= h($record['id']); ?>" class="btn card-btn btn-dark btn-sm"><i class="fas fa-edit"></i>編集</a>
+                            <a href="delete.php?id=<?= h($record['id']); ?>" class="btn card-btn btn-dark btn-sm"><i class="fas fa-trash-alt"></i>削除</a>
                         </div>
                         </div>
                     </div>
                 </div>
             <?php endforeach ?>
         </div>
-    </section>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>

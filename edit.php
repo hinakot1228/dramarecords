@@ -28,7 +28,7 @@ $record = $record->findById($id);
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; ">
+  <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd; ">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php">ドラマ・映画ノート</a>
     </div>
@@ -41,25 +41,25 @@ $record = $record->findById($id);
             <input class="form-control" type="file" value="<?= h($record['image_at']); ?>">
           </div>
         </div> -->
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">題目</label>
         <div class="">
           <input class="form-control" type="text" name="title" value="<?= h($record['title']); ?>">
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">鑑賞日</label>
         <div class="">
           <input class="form-control" type="date" name="date" value="<?= h($record['date']); ?>">
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">感想</label>
         <div class="">
           <textarea class="form-control" type="text" name="impression"><?= h($record['impression']); ?></textarea>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">印象に残った言葉</label>
         <div class="">
           <textarea class="form-control" type="text" name="saying"><?= h($record['saying']); ?></textarea>
@@ -67,8 +67,8 @@ $record = $record->findById($id);
       </div>
       <input type="hidden" name="id" value="<?= $record['id']; ?>">
       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 form-btn">
-          <button type="submit" class="btn btn-primary"><i class="fas fa-edit"></i>編集</button>
+        <div class="col-sm-offset-2 form-btn">
+          <button type="submit" class="btn btn-dark"><i class="fas fa-edit"></i>編集</button>
         </div>
       </div>
     </form>

@@ -13,46 +13,46 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd; ">
+  <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd; ">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php">ドラマ・映画ノート</a>
     </div>
   </nav>
   <div class="body-section">
     <form class="form-horizontal" action="store.php" method="POST" enctype="multipart/form-data">
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">ポスター写真</label>
         <div class="">
           <input class="form-control" type="file" name="image">
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">題目</label>
         <div class="">
           <input class="form-control" type="text" name="title">
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">鑑賞日</label>
         <div class="">
           <input class="form-control" type="date" name="date">
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">感想</label>
         <div class="">
           <textarea class="form-control" type="text" name="impression"></textarea>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group mb-3">
         <label class="col-sm-2 control-label">印象に残った言葉</label>
         <div class="">
           <textarea class="form-control" type="text" name="saying"></textarea>
         </div>
       </div>
       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10 form-btn">
-          <button type="submit" class="btn btn-primary"><i class="fas fa-paperclip"></i>投稿</button>
+        <div class="col-sm-offset-2  form-btn">
+          <button type="submit" class="btn btn-dark"><i class="fas fa-paperclip"></i>投稿</button>
         </div>
       </div>
     </form>

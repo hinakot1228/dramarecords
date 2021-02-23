@@ -1,43 +1,42 @@
-/* .header {
-    display: flex;
-    justify-content: space-around;
-} */
 * { 
     font-family: "M PLUS Rounded 1c"; 
 }
+
 .container-fluid, .body-section {
     width: 90%;
     margin: 0 auto;
 }
-.card-body {
-    margin: 10px 0;
+
+.body-section {
+    margin-top: 20px;
 }
+
 .card {
     margin-bottom: 25px;
-    /* display: flex; */
 }
-.card-btn {
-    margin: 10px;
-}
-.far, .fas{
-    padding-right: 5px;
-}
-.col-md-4 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .record-img {
     width: 100%;
 }
-.card-btn {
-    display: flex;
-    justify-content: flex-end;
+
+.card-title {
+    font-weight: bold;
 }
-.btn {
-    margin-right: 10px;
+
+.card-saying {
+    font-style: italic;
 }
-.form-btn {
+
+.far, .fas{
+    padding-right: 5px;
+}
+
+.card-btns, .form-btn, .alert-btn {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
+}
+
+.card-btn {
+    margin-right: 10px;
 }
