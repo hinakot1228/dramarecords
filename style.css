@@ -1,8 +1,42 @@
-.col-md-4 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+* { 
+    font-family: "M PLUS Rounded 1c"; 
 }
+
+.container-fluid, .body-section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.body-section {
+    margin-top: 20px;
+}
+
+.card {
+    margin-bottom: 25px;
+}
+
 .record-img {
     width: 100%;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-saying {
+    font-style: italic;
+}
+
+.far, .fas{
+    padding-right: 5px;
+}
+
+.card-btns, .form-btn, .alert-btn {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-btn {
+    margin-right: 10px;
 }
