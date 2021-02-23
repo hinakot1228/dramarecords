@@ -8,11 +8,13 @@ $date = $_POST['date'];
 $impression = $_POST['impression'];
 $saying = $_POST['saying'];
 $id = $_POST['id'];
+$userId = $_POST['userId'];
 // var_dump($id);
 // die;
+
 // DBへのデータ保存
 $record = new Record();
-$record->update([$title, $date, $impression, $saying, $id]);
+$record->update([$userId, $title, $date, $impression, $saying, $id]);
 
 // リダイレクト処理
 header('location:index.php');

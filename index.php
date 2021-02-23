@@ -11,13 +11,39 @@ session_start();
 $record = new Record();
 $records = $record->getAll();
 // var_dump($records);
+// die;
+// foreach ($records as $record){
+//     $userid = $record['user_id'];
+//     $title = $record['title'];
+//     $date = $record['date'];
+//     $impression = $record['impression'];
+//     $saying = $record['saying'];
+// }
 
 // DBからニックネームを取得
 if (isset($_SESSION['id'])) {
     $name = $_SESSION['nickname'];
+    $userId = $_SESSION['userid'];
+    // var_dump($userId);
+    // die;
 } else {
     $name = 'あなた';
 }
+
+// usersのuser_idとrecordsのuser_idでテーブルを結合
+// $records = $record->join();
+// var_dump($records['user_id']);
+// die;
+
+// $_SESSION['userid']と$records['user_id']が一致すれば表示
+// if ($userid === $userId) {
+//     $title;
+//     $date;
+//     $impression;
+//     $saying;
+//     // var_dump($title);
+//     // die;
+// }
 
 ?>
 <!DOCTYPE html>

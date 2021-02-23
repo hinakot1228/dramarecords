@@ -1,3 +1,21 @@
+<?php
+// ファイルの読み込み
+require_once('Models/User.php');
+require_once('function.php');
+
+// セッションを開始
+session_start();
+
+// DBからユーザーIDを取得
+if (isset($_SESSION['id'])) {
+    $userId = $_SESSION['userid'];
+    // var_dump($userId);
+    // die;
+} else {
+    $userId = " ";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,6 +73,8 @@
           <button type="submit" class="btn btn-dark"><i class="fas fa-paperclip"></i>投稿</button>
         </div>
       </div>
+
+      <input type="hidden" name="userId" value="<?= $userId; ?>">
     </form>
   </div>
 

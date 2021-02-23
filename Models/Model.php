@@ -44,6 +44,17 @@ class Model
 
         return $stmt->execute($data);
     }
+
+    public function join()
+    {
+        $sql = 'SELECT * FROM users, records WHERE users. user_id = records. user_id';
+        $stmt = $this->db_manager->dbh->prepare($sql);
+        $stmt->execute();
+
+        // 実行結果を取得
+        $records = $stmt->fetchAll();
+        return $records;
+    }
 }
 
 ?>
