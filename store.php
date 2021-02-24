@@ -9,9 +9,12 @@ $date = $_POST['date'];
 $impression = $_POST['impression'];
 $saying = $_POST['saying'];
 $currentTime = date("Y/m/d H:i:s");
+$userId = $_POST['userId'];
 
-// var_dump($image);
+// var_dump($userId);
+// die;
 
+// 画像
 // 画像がアップロードされている場合
 if ($_FILES['image']['error'] !== 4) {
     $imgPath = 'images/' . $_FILES['image']['name'];
@@ -19,12 +22,12 @@ if ($_FILES['image']['error'] !== 4) {
 }
 // 画像がアップロードされていない場合
 else {
-    $imgPath = 'images/default.png';
+    $imgPath = 'images/no_image_tate.jpg';
 }
 
 // SQL文の実行（データをDBに保存）
 $record = new Record();
-$record->create([$imgPath, $title, $date, $impression, $saying, $currentTime]);
+$record->create([$userId, $imgPath, $title, $date, $impression, $saying, $currentTime]);
 
 // リダイレクト処理
 header('location:index.php');

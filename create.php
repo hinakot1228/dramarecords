@@ -1,3 +1,21 @@
+<?php
+// ファイルの読み込み
+require_once('Models/User.php');
+require_once('function.php');
+
+// セッションを開始
+session_start();
+
+// DBからユーザーIDを取得
+if (isset($_SESSION['id'])) {
+    $userId = $_SESSION['userid'];
+    // var_dump($userId);
+    // die;
+} else {
+    $userId = " ";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +23,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>新規作成</title>
+  <title>新規作成｜記録ノートアプリ</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -15,10 +33,11 @@
 <body>
   <nav class="navbar navbar-dark bg-dark" style="background-color: #e3f2fd; ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">ドラマ・映画ノート</a>
+      <a class="navbar-brand" href="index.php"><i class="far fa-clipboard"></i>記録ノート</a>
     </div>
   </nav>
   <div class="body-section">
+    <h3 class="form-heading">新しい記録を作る</h3>
     <form class="form-horizontal" action="store.php" method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label class="col-sm-2 control-label">ポスター写真</label>
@@ -45,7 +64,7 @@
         </div>
       </div>
       <div class="form-group mb-3">
-        <label class="col-sm-2 control-label">印象に残った言葉</label>
+        <label class="col-sm-2 control-label">印象に残った言葉・セリフ</label>
         <div class="">
           <textarea class="form-control" type="text" name="saying"></textarea>
         </div>
@@ -55,6 +74,8 @@
           <button type="submit" class="btn btn-dark"><i class="fas fa-paperclip"></i>投稿</button>
         </div>
       </div>
+
+      <input type="hidden" name="userId" value="<?= $userId; ?>">
     </form>
   </div>
 

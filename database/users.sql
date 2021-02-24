@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `nickname`, `user_id`, `password`, `created_at`) VALUES
-(1, 'スクランプ', 'scrumps1234', 'scrump5678', '2021/1/1 00:00:00');
+(1, '例', '', 'example', '2021/2/24 00:00:00');
 
 --
 -- Indexes for dumped tables

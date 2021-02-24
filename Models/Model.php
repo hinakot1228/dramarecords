@@ -13,12 +13,12 @@ class Model
         $this->db_manager->connect();
     }
 
-    public function getAll()
+    public function getExample($data)
     {
-        $sql = 'SELECT * FROM ' . $this->table;
+        $sql = 'SELECT * FROM ' . $this->table . ' WHERE user_id = ?';
         $stmt = $this->db_manager->dbh->prepare($sql);
         // 準備したSQLを実行する
-        $stmt->execute();
+        $stmt->execute($data);
 
         // 実行結果を取得
         $records = $stmt->fetchAll();
@@ -43,6 +43,17 @@ class Model
         $stmt = $this->db_manager->dbh->prepare($sql);
 
         return $stmt->execute($data);
+    }
+
+    public function getAllByid($data)
+    {
+        $sql = 'SELECT * FROM ' . $this->table . ' WHERE user_id = ?';
+        $stmt = $this->db_manager->dbh->prepare($sql);
+        $stmt->execute($data);
+
+        // 実行結果を取得
+        $records = $stmt->fetchAll();
+        return $records;
     }
 }
 
