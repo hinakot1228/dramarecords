@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `records` (
 --
 
 INSERT INTO `records` (`id`, `user_id`, `image_at`, `title`, `date`, `impression`, `saying`, `created_at`) VALUES
-(1, 'scrump1234', 'images/dokebi.jpg', '도깨비', '2016-01-01', '도깨비♡은탁', '너와 함께한 시간 모두 눈부셨다. 날이 좋아서 날이 좋지 않아서 날이 적당해서 모든 날이 좋았다.' , '2021/02/13 00:00:00');
+(1, '', 'images/parasite.jpg', 'パラサイト（記載例）', '2019-05-30', 'アカデミー賞取っただけに、観る価値のある作品。', '絶対に失敗しない計画は何だと思う？無計画だ。', '2021/02/24 00:00:00');
 
 --
 -- Indexes for dumped tables

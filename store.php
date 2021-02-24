@@ -22,7 +22,7 @@ if ($_FILES['image']['error'] !== 4) {
 }
 // 画像がアップロードされていない場合
 else {
-    $imgPath = 'images/default.png';
+    $imgPath = 'images/no_image_tate.jpg';
 }
 
 // SQL文の実行（データをDBに保存）
